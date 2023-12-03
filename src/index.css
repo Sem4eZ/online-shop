@@ -79,3 +79,50 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
+
+.items {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.item {
+  width: 30%;
+  margin-bottom: 50px;
+  background: #f3f2f2;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.item img {
+  width: 100%;
+}
+
+.item img:hover {
+  transform: scale(1.05);
+  transition: all 500ms;
+}
+
+.item h2,
+.item p,
+.item b,
+.add-to-cart {
+  margin: 10px 20px;
+  width: 80%;
+}
+
+.add-to-cart {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  transform: scale(1.08) translateY(-5px);
+  transition: all 0.1s linear;
+}
