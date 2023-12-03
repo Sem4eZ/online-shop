@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item";
 import { useState } from "react";
 
-const Items = ({onAdd}) => {
+const Items = ({ onAdd }) => {
   const [items, setItems] = useState([
     {
       id: 1,

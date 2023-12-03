@@ -6,10 +6,6 @@ import Items from "./components/Items";
 export default function App() {
   const [orders, setOrders] = useState([]);
 
-  useEffect(() => {
-    console.log(orders);
-  }, [orders]);
-
   const addToOrder = (itemToCart) => {
     let isInArray = false;
     orders.forEach((el) => {
@@ -22,9 +18,13 @@ export default function App() {
     }
   };
 
+  const deleteOrder = (id) => {
+    setOrders((orders) => orders.filter((el) => el.id !== id));
+  };
+
   return (
     <div className="wrapper">
-      <Header orders={orders} />
+      <Header orders={orders} onDelete={deleteOrder} />
       <Items onAdd={addToOrder} />
       <Footer />
     </div>
