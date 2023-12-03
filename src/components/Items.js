@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item";
 import { useState } from "react";
 
-const Items = () => {
+const Items = ({onAdd}) => {
   const [items, setItems] = useState([
     {
       id: 1,
@@ -86,22 +86,10 @@ const Items = () => {
     },
   ]);
 
-  //   const moreItems = Array.from({ length: 90 }, (_, index) => ({
-  //     id: 14 + index,
-  //     title: `Диван ${index + 1}`,
-  //     img: `product-${index + 1}.jpeg`,
-  //     desc: `Описание товара ${index + 1}.`,
-  //     category:
-  //       index % 3 === 0 ? "tables" : index % 3 === 1 ? "chairs" : "shelves",
-  //     price: `${Math.floor(Math.random() * (200 - 50) + 50).toFixed(2)}$`,
-  //   }));
-
-  //   const allItems = [...items, ...moreItems];
-
   return (
     <div className="items">
       {items.map((elem) => (
-        <Item key={elem.id} item={elem} />
+        <Item key={elem.id} item={elem} onAdd={onAdd} />
       ))}
     </div>
   );

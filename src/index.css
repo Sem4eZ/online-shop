@@ -18,9 +18,72 @@ body {
   padding: 0 20px;
 }
 
+.shop {
+  cursor: pointer;
+  font-size: 32px;
+}
+
+.shop:hover {
+  cursor: pointer;
+  color: #ff3332;
+  transition: all 0.2s linear;
+}
 header .logo {
   font-weight: 600;
   font-size: 24px;
+}
+.header {
+  position: relative;
+}
+
+.shop_cart {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 450px;
+  min-height: 70px;
+  background: #ffffff;
+  z-index: 1;
+  -webkit-box-shadow: 0px 5px 18px 12px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 18px 12px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 18px 12px rgba(34, 60, 80, 0.2);
+}
+
+.shop_cart .item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-top: 20px;
+  width: 100%;
+  margin-bottom: 0px;
+  border-radius: 0;
+}
+
+.shop_cart .item img {
+  width: 70px;
+  float: left;
+  margin-left: 15px;
+}
+
+.shop_cart .item h2 {
+  width: 70%;
+  font-size: 16px;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.shop_cart .item b {
+  margin: 0;
+  color: #797979;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.empty_card {
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
 }
 
 header .presentation {
@@ -66,6 +129,7 @@ footer {
   display: flex;
   list-style: none;
   gap: 20px;
+  align-items: center;
 }
 
 .nav li:hover {
