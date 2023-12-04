@@ -13,7 +13,7 @@ export default function Header({ orders, onDelete }) {
     <header>
       <div className="header">
         <div>
-          <span className="logo">Ikeo Shop</span>
+          <span className="logo">IKEO</span>
         </div>
         <ul className="nav">
           <FaCartArrowDown
@@ -27,7 +27,9 @@ export default function Header({ orders, onDelete }) {
                   {orders.map((el) => (
                     <Order onDelete={onDelete} key={el.id} item={el} />
                   ))}
-                  <div className="total_price">Общая сумма: {new Intl.NumberFormat().format(total_sum)}$</div>
+                  <div className="total_price">
+                    Общая сумма: {new Intl.NumberFormat().format(total_sum)}$
+                  </div>
                 </>
               ) : (
                 <div className="empty_card">
