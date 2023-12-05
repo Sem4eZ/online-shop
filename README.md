@@ -9,4 +9,7 @@
 ----Стэк
 - React
 - HTML, CSS
--
+
+Запуск проекта
+- npm install
+- npm start
