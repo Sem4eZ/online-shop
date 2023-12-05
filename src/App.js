@@ -3,26 +3,12 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Items from "./components/Items";
 import Categories from "./components/Categories";
+import ShowFullItem from "./components/ShowFullItem";
 
 export default function App() {
   const [orders, setOrders] = useState([]);
-
-  const addToOrder = (itemToCart) => {
-    let isInArray = false;
-    orders.forEach((el) => {
-      if (el.id === itemToCart.id) {
-        isInArray = true;
-      }
-    });
-    if (!isInArray) {
-      setOrders((prevOrders) => [...prevOrders, itemToCart]);
-    }
-  };
-
-  const deleteOrder = (id) => {
-    setOrders((orders) => orders.filter((el) => el.id !== id));
-  };
-
+  const [showFullItem, setShowFullItem] = useState(false);
+  const [fullItem, setFullItem] = useState({});
   const [items, setItems] = useState([
     {
       id: 1,
@@ -185,11 +171,25 @@ export default function App() {
       price: "139.99$",
     },
   ]);
-
   const [currentItems, setCurrentItems] = useState([...items]);
 
+  const addToOrder = (itemToCart) => {
+    let isInArray = false;
+    orders.forEach((el) => {
+      if (el.id === itemToCart.id) {
+        isInArray = true;
+      }
+    });
+    if (!isInArray) {
+      setOrders((prevOrders) => [...prevOrders, itemToCart]);
+    }
+  };
+
+  const deleteOrder = (id) => {
+    setOrders((orders) => orders.filter((el) => el.id !== id));
+  };
+
   const chooseCategory = (category) => {
-    console.log(category);
     if (category === "all") {
       setCurrentItems([...items]);
     } else {
@@ -197,11 +197,21 @@ export default function App() {
     }
   };
 
+  const onShowItem = (item) => {
+    setFullItem(item);
+    setShowFullItem(true);
+  };
+
+  const onCloseModal = () => {
+    setShowFullItem(false);
+  };
+
   return (
     <div className="wrapper">
       <Header orders={orders} onDelete={deleteOrder} />
       <Categories chooseCategory={chooseCategory} />
-      <Items items={currentItems} onAdd={addToOrder} />
+      <Items onShowItem={onShowItem} items={currentItems} onAdd={addToOrder} />
+      {showFullItem && <ShowFullItem item={fullItem} onClose={onCloseModal} />}
       <Footer />
     </div>
   );

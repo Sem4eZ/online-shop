@@ -1,12 +1,16 @@
 import React from "react";
 
-const Item = ({ item, onAdd }) => {
+const Item = ({ item, onAdd, onShowItem }) => {
   return (
     <div className="item">
-      <img src={"/img/" + item.img} alt={item.title} />
-      <h2>{item.title}</h2>
-      <p>{item.desc}</p>
-      <b>{item.price}</b>
+      <img
+        src={"/img/" + item.img}
+        alt={item.title}
+        onClick={() => onShowItem(item)}
+      />
+      <h2 onClick={() => onShowItem(item)}>{item.title}</h2>
+      <p onClick={() => onShowItem(item)}>{item.desc}</p>
+      <b onClick={() => onShowItem(item)}>{item.price}</b>
       <svg
         onClick={() => onAdd(item)}
         className="add-to-cart"

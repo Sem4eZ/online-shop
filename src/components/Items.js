@@ -1,15 +1,13 @@
 import React from "react";
 import Item from "./Item";
-import { useState } from "react";
-import Categories from "./Categories";
 
-const Items = ({ onAdd, items }) => {
+const Items = ({ onAdd, items, onShowItem }) => {
 
 
   return (
     <div className="items">
       {items.map((elem) => (
-        <Item key={elem.id} item={elem} onAdd={onAdd} />
+        <Item  onShowItem={onShowItem} key={elem.id} item={elem} onAdd={onAdd} />
       ))}
     </div>
   );
